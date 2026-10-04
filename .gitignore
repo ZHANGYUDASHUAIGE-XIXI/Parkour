@@ -1,0 +1,27 @@
+# Unity/Tuanjie 自动生成的缓存（体积巨大，绝不入库）
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]serSettings/
+/MemoryCaptures/
+sysinfo.txt
+
+# IDE 自动生成的解决方案/工程文件
+.vs/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.opendb
+
+# 本机 AI 工具配置（与作品集无关）
+/.codely-cli/
+/.codely/
+/.codely.packages/
+/.codelyignore
+
+# 打包产物
+*.unitypackage
