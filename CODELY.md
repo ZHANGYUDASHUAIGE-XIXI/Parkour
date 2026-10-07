@@ -9,5 +9,7 @@
 
 ### Project
 - [2026-10-04 23:18:54] MyProject01_Parkour 是用户的毕业求职作品集项目：3D三车道无尽跑酷、PC(Windows)、2~3周MVP冲刺（2026-10-06启动）。规划表在项目根《开发规划表.md》，关键里程碑：M1灰盒可玩(D5)/M2无尽不崩(D9)/M3完整闭环(D12，进度红线)/M4(D17)/M5发布(D20)。用户此前让AI在AIGameProject01项目独立完成过跑酷游戏，本项目是用户重做一遍用于学习。
+- [2026-10-07 22:36:23] GitHub 远程仓库已建立并推送成功：https://github.com/ZHANGYUDASHUAIGE-XIXI/Parkour （用户GitHub用户名 ZHANGYUDASHUAIGE-XIXI，2026-10-04 完成首次推送，含 init 与目录结构两条提交）。本地 main 已 track origin/main，用户已学会 add/commit/push 日常流程。注意：用户在国内，GitHub 连接不稳定，曾用 credential.helper manager 浏览器授权解决认证问题。
+
 ### Reference
 
