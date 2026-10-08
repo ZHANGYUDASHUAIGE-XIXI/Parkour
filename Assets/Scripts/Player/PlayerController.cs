@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTrans;   //摄像机
     private float offsetZ;          //相机偏移量
 
-    private float speed = 60f;  //角色移动速度
+    private float speed = 10f;  //角色移动速度
 
     private int laneIndex = 0;              //-1左 0中 1右
     private float laneWidth = 4f;           //道路宽度

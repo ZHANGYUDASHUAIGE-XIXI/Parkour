@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public GameObject segmentPrefab;    //道路片段预制体
+    public Transform segmentPrefab;     //道路片段预制体
     public Transform player;            //角色Transform组件
+    public Transform _segmentPool;      //对象池父对象
 
     private float segmentLength = 20f;  //道路片段长度
     private float nextSpawnZ = -20f;    //下一个生成点在Z轴的位置
 
-    private List<GameObject> segmentList = new List<GameObject>();  //道路片段列表
+    private List<Transform> segmentList = new List<Transform>();  //道路片段列表
+
+    private ObjectPool<Transform> segmentPool;  //对象池
+    private int prewarmCount = 15;              //预热数量
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 60; i++)
+        segmentPool = new ObjectPool<Transform>(segmentPrefab, prewarmCount, _segmentPool);
+
+        for(int i = 0; i < 12; i++)
         {
             SpawnSegment();
         }
@@ -34,7 +40,7 @@ public class LevelGenerator : MonoBehaviour
     void SpawnSegment()
     {
         Vector3 spawnPos = new Vector3(0f, 0f, nextSpawnZ);
-        GameObject seg = Instantiate(segmentPrefab, spawnPos, Quaternion.identity);
+        Transform seg = segmentPool.Get(spawnPos, Quaternion.identity);
 
         segmentList.Add(seg);
 
@@ -46,7 +52,7 @@ public class LevelGenerator : MonoBehaviour
     /// </summary>
     void SpawnSegmentAhead()
     {
-        while(nextSpawnZ - player.position.z < 60f)
+        while(nextSpawnZ - player.position.z < 200f)
         {
             SpawnSegment();
         }
@@ -59,12 +65,12 @@ public class LevelGenerator : MonoBehaviour
     {
         if (segmentList.Count == 0) return;
 
-        GameObject head = segmentList[0];
-        Vector3 headPos = head.transform.position;
+        Transform head = segmentList[0];
+        Vector3 headPos = head.position;
 
         if(player.position.z - headPos.z > 40f)
         {
-            Destroy(head);
+            segmentPool.Release(head);
             segmentList.RemoveAt(0);
         }
     }

@@ -124,6 +124,38 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &200433489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 7
+  m_Component:
+  - component: {fileID: 200433490}
+  m_Layer: 0
+  m_HasEditorInfo: 1
+  m_Name: SegmentPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &200433490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200433489}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,8 +297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860e39731e714cb459af54ca1b57b035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentPrefab: {fileID: 3163346182740059002, guid: ff25eed80e4e5fd43a85e292f0773972, type: 3}
+  segmentPrefab: {fileID: 6089941644567531673, guid: ff25eed80e4e5fd43a85e292f0773972, type: 3}
   player: {fileID: 2075078176}
+  _segmentPool: {fileID: 200433490}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,3 +533,4 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 2075078176}
   - {fileID: 952910477}
+  - {fileID: 200433490}
