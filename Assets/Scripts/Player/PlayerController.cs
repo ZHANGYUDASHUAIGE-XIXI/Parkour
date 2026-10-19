@@ -8,18 +8,19 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTrans;   //摄像机
     private float offsetZ;          //相机偏移量
 
-    private float speed = 10f;  //角色移动速度
+    [SerializeField]
+    private float speed = 10f;      //角色移动速度
+    private float maxSpeed = 16f;   //最大移动速度
+    private float speedUpAmount = 0.4f; //速度增加量
+    private float nextSpeedUpZ = 100f; //下一个速度增加位置
 
     private int laneIndex = 0;              //-1左 0中 1右
     private float laneWidth = 4f;           //道路宽度
     private float laneChangeSpeed = 30f;    //变道速度
 
-    private bool isDead = false;    //是否死亡
-
     private float jumpSpeed = 15f;  //跳跃速度
     private float gravity = -40f;   //重力加速度
     private float velocityY = 0f;   //当前起跳速度
-    private float groundY;          //地面高度
 
     private CharacterController controller; //角色控制器
 
@@ -30,29 +31,41 @@ public class PlayerController : MonoBehaviour
     private float slideHeight = 1f;     //滑铲高度
     private Vector3 standCenter;        //站立时碰撞体中心
 
+    private Animator animator;          //动画控制器
+
     // Start is called before the first frame update
     void Start()
     { 
         //相机偏移量
         offsetZ = cameraTrans.position.z - transform.position.z;
-        //地面高度
-        groundY = transform.position.y;
         //胶囊碰撞体
         controller = GetComponent<CharacterController>();
         //站立时碰撞体中心
         standCenter = controller.center;
+        //动画控制器
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //按R重新加载游戏
-        if (Input.GetKeyDown(KeyCode.R))
+        if(GameManager.Instance.CurrentState == GameState.GameOver)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                GameManager.Instance.RestartGame();
+            }   
         }
 
-        if (isDead) return;
+        if (GameManager.Instance.CurrentState != GameState.Playing) return;
+
+        if(speed < maxSpeed && transform.position.z >= nextSpeedUpZ)
+        {
+            speed += speedUpAmount;
+            speed = Mathf.Clamp(speed, 0f, maxSpeed);
+            nextSpeedUpZ += 100f;
+        }
 
         Vector3 moveDelta = Vector3.zero;
         moveDelta.x = GetLaneDelta();
@@ -126,7 +139,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Die()
     {
-        isDead = true;
+        GameManager.Instance.PlayerDied();
+        animator.enabled = false;
         Debug.Log("角色死亡！按R重新开始游戏！");
     }
 
@@ -141,9 +155,11 @@ public class PlayerController : MonoBehaviour
             if(velocityY < 0f) velocityY = -2f;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
+        if(Input.GetKeyDown(KeyCode.Space) && controller.isGrounded && !isSliding)
         {
             velocityY = jumpSpeed;
+            //播放跳跃动画
+            animator.SetTrigger("IsJumping");
         }
 
         velocityY += gravity * Time.deltaTime;
@@ -156,7 +172,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void PlayerSlide()
     {
-        if(Input.GetKeyDown(KeyCode.S) && !isSliding)
+        if(Input.GetKeyDown(KeyCode.S) && !isSliding && controller.isGrounded)
         {
             StartSlide();
         }
@@ -177,6 +193,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void StartSlide()
     {
+        //播放滑铲动画
+        animator.SetTrigger("IsSliding");
+        transform.Rotate(0, -90, 0);
+
         isSliding = true;
         slideTimer = slideDuration;
 
@@ -194,6 +214,16 @@ public class PlayerController : MonoBehaviour
         slideTimer = 0f;
 
         controller.height = standHeight;
-        controller.center = Vector3.zero;
+        controller.center = standCenter;
+    }
+
+    public void OnJumpEnd()
+    {
+        transform.localRotation = Quaternion.identity;
+    }
+
+    public void OnSlideEnd()
+    {
+        transform.localRotation = Quaternion.identity;
     }
 }
