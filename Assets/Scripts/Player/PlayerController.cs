@@ -44,20 +44,18 @@ public class PlayerController : MonoBehaviour
         standCenter = controller.center;
         //动画控制器
         animator = GetComponent<Animator>();
+
+        GameManager.Instance.OnStateChanged += PlayRunAnimation;
+    }
+
+    void OnDestroy()
+    {
+        GameManager.Instance.OnStateChanged -= PlayRunAnimation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //按R重新加载游戏
-        if(GameManager.Instance.CurrentState == GameState.GameOver)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                GameManager.Instance.RestartGame();
-            }   
-        }
-
         if (GameManager.Instance.CurrentState != GameState.Playing) return;
 
         if(speed < maxSpeed && transform.position.z >= nextSpeedUpZ)
@@ -110,12 +108,16 @@ public class PlayerController : MonoBehaviour
         {
             laneIndex--;
             if (laneIndex < -1) laneIndex = -1;
+            //播放变道音效
+            AudioManager.Instance.PlayLaneChangeSound();
         }
 
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             laneIndex++;
             if (laneIndex > 1) laneIndex = 1;
+            //播放变道音效
+            AudioManager.Instance.PlayLaneChangeSound();
         }
     }
 
@@ -140,8 +142,8 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         GameManager.Instance.PlayerDied();
-        animator.enabled = false;
-        Debug.Log("角色死亡！按R重新开始游戏！");
+        AudioManager.Instance.PlayDieSound();
+        animator.SetBool("IsDead", true);
     }
 
     /// <summary>
@@ -153,13 +155,17 @@ public class PlayerController : MonoBehaviour
         if (controller.isGrounded)
         {
             if(velocityY < 0f) velocityY = -2f;
+            //播放奔跑动画
+            animator.SetBool("IsJumping", false);
         }
 
         if(Input.GetKeyDown(KeyCode.Space) && controller.isGrounded && !isSliding)
         {
             velocityY = jumpSpeed;
             //播放跳跃动画
-            animator.SetTrigger("IsJumping");
+            animator.SetBool("IsJumping", true);
+            //播放跳跃音效
+            AudioManager.Instance.PlayJumpSound();
         }
 
         velocityY += gravity * Time.deltaTime;
@@ -194,8 +200,9 @@ public class PlayerController : MonoBehaviour
     void StartSlide()
     {
         //播放滑铲动画
-        animator.SetTrigger("IsSliding");
-        transform.Rotate(0, -90, 0);
+        animator.SetBool("IsSliding", true);
+        //播放滑铲音效
+        AudioManager.Instance.PlaySlideSound();
 
         isSliding = true;
         slideTimer = slideDuration;
@@ -210,6 +217,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void EndSlide()
     {
+        //播放奔跑动画
+        animator.SetBool("IsSliding", false);
+
         isSliding = false;
         slideTimer = 0f;
 
@@ -217,13 +227,15 @@ public class PlayerController : MonoBehaviour
         controller.center = standCenter;
     }
 
-    public void OnJumpEnd()
+    void PlayRunAnimation(GameState newState)
     {
-        transform.localRotation = Quaternion.identity;
-    }
-
-    public void OnSlideEnd()
-    {
-        transform.localRotation = Quaternion.identity;
+        if(newState == GameState.Playing)
+        {
+            animator.SetBool("IsPlaying", true);
+        }
+        else if(newState == GameState.Menu)
+        {
+            animator.SetBool("IsPlaying", false);
+        }
     }
 }

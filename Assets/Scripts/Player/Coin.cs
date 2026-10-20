@@ -16,6 +16,7 @@ public class Coin : MonoBehaviour
         {
             OnCoinCollected?.Invoke(1); //收集到1个金币
             LevelGenerator.Instance.RecycleObject(transform);   
+            AudioManager.Instance.PlayCoinCollectSound();
         }
     }
 

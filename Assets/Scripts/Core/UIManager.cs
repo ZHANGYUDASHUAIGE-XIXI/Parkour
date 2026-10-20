@@ -54,6 +54,8 @@ public class UIManager : MonoBehaviour
     public void OnStartGameClick()
     {
         GameManager.Instance.StartGame();
+        //播放开始游戏音效
+        AudioManager.Instance.PlayButtonSound();
     }
 
     /// <summary>
@@ -62,5 +64,7 @@ public class UIManager : MonoBehaviour
     public void OnRestartGameClick()
     {
         GameManager.Instance.RestartGame();
+        //播放重新开始游戏音效
+        AudioManager.Instance.PlayButtonSound();
     }
 }

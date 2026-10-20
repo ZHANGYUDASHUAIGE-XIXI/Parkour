@@ -1,0 +1,40 @@
+第三方音效来源说明
+
+本次新增的四个音效均下载自作者公开发布的素材，不使用此前程序合成的声音。
+许可：CC0 1.0（来源页面及原始包内许可已核对）。
+https://creativecommons.org/publicdomain/zero/1.0/
+以下说明仅适用于本次四个 WAV，不涉及目录中原有音乐及其他音效。
+
+跳跃.wav（0.4959 秒）
+作者：Vehicle / Jan Schupke
+素材包：Fantasy Weapons and Apparel SFX Library
+原文件：boots-leather-jump-01.wav
+来源：https://opengameart.org/content/fantasy-weapons-and-apparel-sfx-library
+
+滑铲.wav（0.8 秒）
+作者：AntumDeluge
+素材包：Scrapes
+原文件：scrape-1.wav
+来源：https://opengameart.org/content/scrapes
+
+变道.wav（0.126 秒）
+作者：artisticdude
+素材包：Swishes Sound Pack
+原文件：swish-1.wav
+来源：https://opengameart.org/content/swishes-sound-pack
+
+点击按钮.wav（0.0971 秒）
+作者：Kenney
+素材包：Interface Sounds
+原文件：click_001.ogg
+来源：https://opengameart.org/content/interface-sounds
+
+整理方式：统一为 44.1 kHz / 16-bit PCM / 单声道 WAV；跳跃、变道及点击适当降低音量。
+跳跃来自鞋靴动作录音；变道来自实录挥动掠过声。
+滑铲采用物体与水泥砌块摩擦录音，截取前 0.8 秒并做 35 毫秒淡出，以匹配当前滑铲时长。
+以上仅做格式、音量和剪辑处理，没有重新合成声音。
+
+原始下载包及所选原片段：项目根目录 Tools/Audio/Downloaded。
+精确文件对应、处理参数和校验值：Tools/Audio/Downloaded/selected-sounds.json。
+许可原文：本目录 Licenses 文件夹。
+未修改游戏脚本或场景组件；可在引擎 AudioClip 预览中试听并绑定。

@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 180
-  levelGenerator: {fileID: 0}
 --- !u!65 &6256315674051668860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -136,7 +135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 51b854697589a1d44b18889e2d0dd768, type: 2}
+  - {fileID: 2100000, guid: a37c527f9747e434fb8af074cf56f4e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
