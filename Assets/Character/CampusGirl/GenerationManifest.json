@@ -1,0 +1,155 @@
+{
+  "prefab": "Assets/Character/CampusGirl/CampusGirlRig.prefab",
+  "riggedModel": "Assets/Character/CampusGirl/Model/35c4692a43ec5149.fbx",
+  "clips": {
+    "Idle": "Assets/Character/CampusGirl/Animations/CampusGirl_Idle.anim",
+    "Run": "Assets/Character/CampusGirl/Animations/CampusGirl_Run.anim",
+    "Jump": "Assets/Character/CampusGirl/Animations/CampusGirl_Jump.anim",
+    "Slide": "Assets/Character/CampusGirl/Animations/CampusGirl_Slide.anim",
+    "Death": "Assets/Character/CampusGirl/Animations/CampusGirl_Death.anim"
+  },
+  "generation": {
+    "provider": "Tencent Hunyuan 3.1 through authenticated Tuanjie MCP",
+    "model_task": "6ad62b6d0758fb0ee7ed6dbc",
+    "rig_engine": "MIA",
+    "rig_task": "6ad630670758fb0ee7ef8596",
+    "model_prompt": "Stylized game-ready Chinese college campus young adult woman, black ponytail, white PE sports jacket with navy blue details and small sage green accents, navy athletic long pants, white sneakers. Fully clothed, full body T-pose with arms extended horizontally and legs slightly apart, neutral friendly expression, balanced humanoid proportions, clean appealing low-poly stylized game art, clean separated arms and legs for rigging. No backpack, no props, no skirt, no platform, no text, no accessories hanging between limbs."
+  },
+  "verified_model": {
+    "engine": "mia",
+    "task_id": "6ad630670758fb0ee7ef8596",
+    "status": "completed",
+    "import_status": "completed",
+    "prefab": "Assets/Character/CampusGirl/CampusGirlRig.prefab",
+    "model": "Assets/Character/CampusGirl/Model/35c4692a43ec5149.fbx",
+    "avatar_valid": true,
+    "avatar_human": true,
+    "bones": 22,
+    "vertices": 14063,
+    "triangles": 20002,
+    "height_meters": 1.8,
+    "root_scale": [
+      1,
+      1,
+      1
+    ],
+    "visual_scale": [
+      1,
+      1,
+      1
+    ],
+    "visual_y": 0.159388,
+    "model_importer_global_scale": 0.871304154,
+    "apply_root_motion": false
+  },
+  "motions": {
+    "Idle": {
+      "submitted": true,
+      "args_file": "Tools/Hunyuan/.local/CampusGirl/idle.args.json",
+      "task_id": "6ad62bbb0758fb0ee7ed875b",
+      "status": "completed",
+      "name": "Idle",
+      "source": "Assets/Character/CampusGirl/Animations/Source/Idle.fbx",
+      "clip": "Assets/Character/CampusGirl/Animations/Idle.anim",
+      "length": 3.966667,
+      "frameRate": 30,
+      "humanMotion": true,
+      "legacy": false,
+      "loop": true,
+      "avatarHuman": true,
+      "avatarValid": true
+    },
+    "Run": {
+      "submitted": true,
+      "args_file": "Tools/Hunyuan/.local/CampusGirl/run.args.json",
+      "task_id": "6ad630e100bbe8638e6dd554",
+      "status": "completed",
+      "name": "Run",
+      "source": "Assets/Character/CampusGirl/Animations/Source/Run.fbx",
+      "clip": "Assets/Character/CampusGirl/Animations/Run.anim",
+      "length": 2.966667,
+      "frameRate": 30,
+      "humanMotion": true,
+      "legacy": false,
+      "loop": true,
+      "avatarHuman": true,
+      "avatarValid": true
+    },
+    "Jump": {
+      "submitted": true,
+      "args_file": "Tools/Hunyuan/.local/CampusGirl/jump.args.json",
+      "task_id": "6ad62bbd0758fb0ee7ed877b",
+      "status": "completed",
+      "name": "Jump",
+      "source": "Assets/Character/CampusGirl/Animations/Source/Jump.fbx",
+      "clip": "Assets/Character/CampusGirl/Animations/Jump.anim",
+      "length": 1.96666682,
+      "frameRate": 30,
+      "humanMotion": true,
+      "legacy": false,
+      "loop": false,
+      "avatarHuman": true,
+      "avatarValid": true
+    },
+    "Slide": {
+      "submitted": true,
+      "args_file": "Tools/Hunyuan/.local/CampusGirl/slide.args.json",
+      "task_id": "6ad6305900bbe8638e6dab8a",
+      "status": "completed",
+      "name": "Slide",
+      "source": "Assets/Character/CampusGirl/Animations/Source/Slide.fbx",
+      "clip": "Assets/Character/CampusGirl/Animations/Slide.anim",
+      "length": 1.96666682,
+      "frameRate": 30,
+      "humanMotion": true,
+      "legacy": false,
+      "loop": false,
+      "avatarHuman": true,
+      "avatarValid": true
+    },
+    "Death": {
+      "submitted": true,
+      "args_file": "Tools/Hunyuan/.local/CampusGirl/death.args.json",
+      "task_id": "6ad6305b0758fb0ee7ef838b",
+      "status": "completed",
+      "name": "Death",
+      "source": "Assets/Character/CampusGirl/Animations/Source/Death.fbx",
+      "clip": "Assets/Character/CampusGirl/Animations/Death.anim",
+      "length": 3.966667,
+      "frameRate": 30,
+      "humanMotion": true,
+      "legacy": false,
+      "loop": false,
+      "avatarHuman": true,
+      "avatarValid": true
+    }
+  },
+  "notes": [
+    "Generated through Tuanjie: Hunyuan model and five motions, MIA humanoid rig.",
+    "Completed scene replacement, component migration and reference migration; original player and scene backed up.",
+    "Armature scale normalized, bind poses and Humanoid Avatar rebuilt, motion roots rebaked from source FBX.",
+    "Five Animator states and forward runner movement verified in Play mode. Gameplay C# source unchanged.",
+    "Idle/Death parameters are ready; user must wire game-state triggers. Existing Die disables Animator."
+  ],
+  "integration": {
+    "scene": "Assets/Scenes/SampleScene.scene",
+    "player": "校园少女",
+    "prefab": "Assets/Character/CampusGirl/Prefabs/CampusGirl_Player.prefab",
+    "controller": "Assets/Character/CampusGirl/Animations/CampusGirl.controller",
+    "avatar": "Assets/Character/CampusGirl/Model/CampusGirl_Humanoid.asset",
+    "human_scale": 1.06068039,
+    "armature_unit_scale_repaired": true,
+    "skin_bind_poses_rebuilt": true,
+    "root_motion_rebaked_from_source": true,
+    "scene_references_migrated": true,
+    "gameplay_scripts_modified": false,
+    "runtime_states_verified": [
+      "Idle",
+      "Run",
+      "Jump",
+      "Slide",
+      "Death"
+    ],
+    "runtime_forward_meters": 6.437261
+  }
+}

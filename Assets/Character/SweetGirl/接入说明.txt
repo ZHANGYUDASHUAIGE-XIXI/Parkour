@@ -1,0 +1,32 @@
+甜妹角色（2026-10-20）
+
+场景 Assets/Scenes/SampleScene.scene 中的角色已替换为“甜妹角色”。
+使用预制体：Assets/Character/SweetGirl/Prefabs/SweetGirl_Player.prefab
+使用 Avatar：Assets/Character/SweetGirl/Model/SweetGirl_Humanoid.asset
+
+尺寸：鞋底到头顶的站立网格高度为 1.95 米，最低点为 0；全部 Transform 缩放为 1。
+待机采样高度约 1.945 米。原 CharacterController 高度仍为 2 米、半径 0.2 米、中心 (0,1,0)。
+
+生成来源：内置 imagegen 将用户提供的截图整理为单人参考图，混元 3.1 根据参考图生成 3D 模型，MIA 生成人形骨架。
+参考图保存在 Reference/SweetGirl_Front.png；参考整理提示词记录在 Reference/ReferenceGeneration.json。
+新模型为 50,000 三角面、36,142 顶点、22 根骨骼，使用 2048×2048 贴图。
+已烘焙导入单位缩放、重算蒙皮绑定矩阵并重建 Avatar。请使用上面的预制体和 Avatar。
+
+复用原资源：Assets/Character/CampusGirl/Animations/CampusGirl.controller 及其中的五个 CampusGirl_*.anim。
+本次没有重新生成动画，五个 .anim 动画文件和 Assets/Scripts 中的游戏脚本内容均未修改。
+继续引用原控制器；Unity 在保存关联资产时重新保存了控制器序列化文件，五个状态及参数切换已验证通过。
+请保留 CampusGirl/Animations 目录，新角色仍依赖其中的资源。
+Animator、CharacterController、PlayerController、原空 MeshRenderer 组件均承接原角色配置。
+Main Camera、LevelGenerator.player、ScoreManager.player 的引用已保留或迁移。
+
+动画参数保持原设置：IsJumping、IsSliding、IsPlaying、IsDead。
+原逻辑尚未接入待机/死亡触发，PlayerController.Die() 仍会关闭 Animator；按之前约定由用户接代码。
+复用的死亡动作末段在本模型上存在贴地穿插：抽样最低点约为 Y=-0.20 米。本次保留原动画，未添加地面修饰或重新生成动作；后续接入死亡逻辑时可一起校正落地高度。
+
+备份：
+- 原校园少女仍保存在 Assets/Character/CampusGirl 下。
+- 旧场景角色预制体：Assets/Character/SweetGirl/Legacy/CampusGirl_BeforeReplacement.prefab
+- 替换前场景：ArtBackups/SweetGirl_BeforeReplacement_20261020/Assets/Scenes/SampleScene.scene
+
+验证范围：Edit 模式的网格实际尺寸、六个姿态截图、五个 Animator 状态参数切换、原组件序列化设置一致性和场景引用。
+预览图位于项目根 screenshots/SweetGirl_*.png。生成记录与最终验证摘要见 GenerationManifest.json。

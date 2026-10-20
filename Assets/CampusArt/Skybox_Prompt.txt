@@ -1,0 +1,6 @@
+Generator: built-in image_gen / imagegen skill
+Output: Textures/Campus_MorningSky.png
+Purpose: imported as the main scene's panoramic skybox texture.
+
+Final generation prompt:
+Use case: stylized-concept. Asset type: production game skybox texture, equirectangular latitude-longitude panorama, exact 2:1 aspect ratio, 4096x2048 if available. Primary request: a seamless 360 degree sunny spring morning SKY ONLY environment texture for a cheerful stylized low-poly Chinese school campus running game. Beautiful soft cerulean blue zenith fading to pale warm powder blue at horizon, a few widely spaced fluffy hand-painted cumulus clouds with cream white sunlit tops and subtle cool periwinkle undersides, bright clean friendly atmosphere. Horizon perfectly level at middle height. Lower hemisphere softly muted pale blue-grey atmosphere gradient, no land. Sparse broad clouds mostly between horizon and elevation 45 degrees, generously clear blue sky overhead; no giant cloud blocking the zenith. Seamless wrap left to right, no seams at poles, correct equirectangular projection. Soft indirect daytime illumination, no strong sun disc and no baked shadows, no lens flare, no birds, no buildings, no trees, no ground, no mountains, no text or watermarks. This is a usable background texture, NOT an image of a game scene, not a moodboard.

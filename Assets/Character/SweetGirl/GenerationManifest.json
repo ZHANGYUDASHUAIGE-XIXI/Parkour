@@ -1,0 +1,415 @@
+{
+  "name": "SweetGirl",
+  "reference": "Assets/Character/SweetGirl/Reference/SweetGirl_Front.png",
+  "source_model": "Assets/Character/SweetGirl/Source/21c27ca522d3c624.fbx",
+  "rigged_model": "Assets/Character/SweetGirl/Model/13b2ed494fd8582c.fbx",
+  "raw_rig_prefab": "Assets/Character/SweetGirl/SweetGirlRig.prefab",
+  "model_generation": {
+    "provider": "hunyuan",
+    "model": "3.1",
+    "mode": "image_to_model",
+    "face_limit": 50000,
+    "with_fbx": true,
+    "task_id": "6ad6da25866796bfde0df8b9",
+    "prompt": "Faithfully recreate the adult young woman shown in the reference image as a polished semi-realistic 3D game character. Preserve her delicate sweet face, refined eyes, soft makeup, feminine proportions and fair complexion. Long dark brown wavy hair reaching her waist. Light powder blue off-shoulder long-sleeved lace-up ribbed knit top with blue ribbon, white layered ruffle skirt with white bow details, white ankle-strap platform high heels, pearl necklace and small earrings. Full body, neutral symmetrical relaxed A-pose with arms away from torso, feet separated, balanced upright pose for humanoid rigging. Detailed face and clothing, textured hair volume, natural anatomy. No environment, no ground platform, no text. Match the reference design closely; elegant semi-realistic high quality character art, not low-poly cartoon."
+  },
+  "rig_generation": {
+    "engine": "mia",
+    "task_id": "6ad6db1c866796bfde0e46fb"
+  },
+  "new_animations_generated": 0,
+  "existing_animations_to_reuse": [
+    "Assets/Character/CampusGirl/Animations/CampusGirl_Idle.anim",
+    "Assets/Character/CampusGirl/Animations/CampusGirl_Run.anim",
+    "Assets/Character/CampusGirl/Animations/CampusGirl_Jump.anim",
+    "Assets/Character/CampusGirl/Animations/CampusGirl_Slide.anim",
+    "Assets/Character/CampusGirl/Animations/CampusGirl_Death.anim"
+  ],
+  "raw_validation": {
+    "model": "Assets/Character/SweetGirl/Model/13b2ed494fd8582c.fbx",
+    "prefab": "Assets/Character/SweetGirl/SweetGirlRig.prefab",
+    "importGlobalScale": 1,
+    "raw": {
+      "rootScale": [
+        1,
+        1,
+        1
+      ],
+      "bounds": {
+        "size": [
+          1.34091449,
+          1.65200329,
+          0.502662539
+        ],
+        "min": [
+          -0.672727168,
+          -0.0495155454,
+          -0.2642918
+        ],
+        "max": [
+          0.6681873,
+          1.6024878,
+          0.238370746
+        ]
+      },
+      "animator": true,
+      "avatar": "13b2ed494fd8582cAvatar",
+      "avatarHuman": true,
+      "avatarValid": true,
+      "humanScale": 1.00154662,
+      "transforms": [
+        {
+          "name": "13b2ed494fd8582c(Clone)",
+          "localScale": [
+            1,
+            1,
+            1
+          ],
+          "localPosition": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "Armature",
+          "localScale": [
+            99.9999847,
+            99.99999,
+            99.99999
+          ],
+          "localPosition": [
+            0,
+            1.0000807,
+            0
+          ]
+        },
+        {
+          "name": "mixamorig:Hips",
+          "localScale": [
+            1,
+            0.9999999,
+            0.9999997
+          ],
+          "localPosition": [
+            4.656615E-08,
+            -9.155682E-06,
+            9.973645E-06
+          ]
+        }
+      ],
+      "meshes": [
+        {
+          "name": "mesh",
+          "vertices": 36142,
+          "triangles": 50000,
+          "bones": 22,
+          "skinWeights": 36142,
+          "materials": [
+            {
+              "name": "Material.001",
+              "shader": "Standard",
+              "texture": "Assets/Character/SweetGirl/Model/13b2ed494fd8582c.fbm/texture_20250901.png",
+              "width": 2048,
+              "height": 2048
+            }
+          ]
+        }
+      ]
+    },
+    "prefabInfo": {
+      "rootScale": [
+        1,
+        1,
+        1
+      ],
+      "bounds": {
+        "size": [
+          0.81169,
+          1.00000012,
+          0.304274559
+        ],
+        "min": [
+          -0.407219023,
+          -0.02997303,
+          -0.159982622
+        ],
+        "max": [
+          0.40447095,
+          0.9700271,
+          0.144291937
+        ]
+      },
+      "animator": true,
+      "avatar": "13b2ed494fd8582cAvatar",
+      "avatarHuman": true,
+      "avatarValid": true,
+      "humanScale": 1.00154662,
+      "transforms": [
+        {
+          "name": "SweetGirlRig(Clone)",
+          "localScale": [
+            1,
+            1,
+            1
+          ],
+          "localPosition": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "Armature",
+          "localScale": [
+            99.9999847,
+            99.99999,
+            99.99999
+          ],
+          "localPosition": [
+            0,
+            1.0000807,
+            0
+          ]
+        },
+        {
+          "name": "mixamorig:Hips",
+          "localScale": [
+            1,
+            0.9999999,
+            0.9999997
+          ],
+          "localPosition": [
+            4.656615E-08,
+            -9.155682E-06,
+            9.973645E-06
+          ]
+        }
+      ],
+      "meshes": [
+        {
+          "name": "mesh",
+          "vertices": 36142,
+          "triangles": 50000,
+          "bones": 22,
+          "skinWeights": 36142,
+          "materials": [
+            {
+              "name": "Material.001",
+              "shader": "Standard",
+              "texture": "Assets/Character/SweetGirl/Model/13b2ed494fd8582c.fbm/texture_20250901.png",
+              "width": 2048,
+              "height": 2048
+            }
+          ]
+        }
+      ]
+    },
+    "newAnimationClips": 0
+  },
+  "static_validation": {
+    "model": "Assets/Character/SweetGirl/Source/21c27ca522d3c624.fbx",
+    "prefab": "Assets/Character/SweetGirl/SweetGirl_Static.prefab",
+    "rawBounds": {
+      "size": [
+        0.509929,
+        1.188678,
+        0.204596
+      ],
+      "min": [
+        -0.254283,
+        0,
+        -0.109141
+      ],
+      "max": [
+        0.255646,
+        1.188678,
+        0.095455
+      ],
+      "rootScale": [
+        100,
+        100,
+        100
+      ]
+    },
+    "prefabBounds": {
+      "size": [
+        0.4289882,
+        0.17212069,
+        0.999999762
+      ],
+      "min": [
+        -0.213920787,
+        -0.09181722,
+        -0.999999762
+      ],
+      "max": [
+        0.2150674,
+        0.08030347,
+        0
+      ],
+      "rootScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "importerGlobalScale": 1,
+    "meshes": [
+      {
+        "vertices": 36138,
+        "triangles": 50000
+      }
+    ],
+    "materials": [
+      {
+        "name": "Material",
+        "shader": "Standard",
+        "texture": "Assets/Character/SweetGirl/Source/21c27ca522d3c624.fbm/texture_20250901.png",
+        "width": 2048,
+        "height": 2048
+      }
+    ]
+  },
+  "notes": [
+    "Raw FBX and imported prefab retain service/importer transforms; normalize geometry and armature and rebuild Avatar before production integration.",
+    "The humanoid Avatar is valid and human, but Armature retains a 100x local scale. Parent task owns normalization and retarget sampling.",
+    "Raw rig FBX is upright. Static prefab uses the importer Rodin preset and is rotated; preview original source FBX instead.",
+    "No new motion generation, no add_motion, no scene replacement, and no gameplay source edits were performed by this asset-generation task."
+  ],
+  "preparedRig": {
+    "prefab": "Assets/Character/SweetGirl/Prefabs/SweetGirlRig.prefab",
+    "sourceModel": "Assets/Character/SweetGirl/Model/13b2ed494fd8582c.fbx",
+    "avatar": "Assets/Character/SweetGirl/Model/SweetGirl_Humanoid.asset",
+    "heightMeters": 1.95,
+    "bottomY": 0.0,
+    "topY": 1.95,
+    "humanScale": 1.22632515,
+    "rootScale": "(1.00, 1.00, 1.00)",
+    "allTransformScalesNormalized": true,
+    "vertices": 36142,
+    "triangles": 50000,
+    "newAnimationsGenerated": false
+  },
+  "sceneIntegration": {
+    "scene": "Assets/Scenes/SampleScene.scene",
+    "newPlayer": "甜妹角色",
+    "prefab": "Assets/Character/SweetGirl/Prefabs/SweetGirl_Player.prefab",
+    "legacyPrefab": "Assets/Character/SweetGirl/Legacy/CampusGirl_BeforeReplacement.prefab",
+    "avatar": "Assets/Character/SweetGirl/Model/SweetGirl_Humanoid.asset",
+    "reusedController": "Assets/Character/CampusGirl/Animations/CampusGirl.controller",
+    "components": [
+      "UnityEngine.Transform",
+      "UnityEngine.Animator",
+      "UnityEngine.CharacterController",
+      "PlayerController",
+      "UnityEngine.MeshRenderer"
+    ],
+    "heightMeters": 1.95,
+    "colliderHeight": 2.0,
+    "referencesMigrated": true,
+    "newAnimationsGenerated": false,
+    "gameplaySourceChanged": false
+  },
+  "finalVerification": {
+    "scene": "Assets/Scenes/SampleScene.scene",
+    "sceneSaved": true,
+    "player": "甜妹角色",
+    "heightMeters": 1.95000088,
+    "bottomY": -8.34465E-07,
+    "colliderHeight": 2.0,
+    "rootScale": "(1.00, 1.00, 1.00)",
+    "componentsMatchOriginal": true,
+    "sceneReferencesValid": true,
+    "reusedController": "Assets/Character/CampusGirl/Animations/CampusGirl.controller",
+    "avatar": "Assets/Character/SweetGirl/Model/SweetGirl_Humanoid.asset",
+    "stateTransitions": [
+      {
+        "state": "Idle",
+        "entered": true,
+        "hipsOffset": "(-0.0019, 1.2134, 0.0176)"
+      },
+      {
+        "state": "Run",
+        "entered": true,
+        "hipsOffset": "(0.0152, 1.1837, -0.0366)"
+      },
+      {
+        "state": "Jump",
+        "entered": true,
+        "hipsOffset": "(0.0114, 0.9439, -0.1807)"
+      },
+      {
+        "state": "Slide",
+        "entered": true,
+        "hipsOffset": "(0.1617, 0.5106, 0.0047)"
+      },
+      {
+        "state": "Death",
+        "entered": true,
+        "hipsOffset": "(-0.0147, 0.6979, 0.0442)"
+      }
+    ],
+    "verificationMode": "Edit-mode Animator evaluation and baked mesh previews",
+    "newAnimationsGenerated": false
+  },
+  "animationPreviews": [
+    {
+      "pose": "BindPose",
+      "meshHeight": 1.95000088,
+      "minY": -8.34465E-07,
+      "maxY": 1.95,
+      "hips": "(0.0016, 1.2234, 0.0178)",
+      "screenshot": "screenshots/SweetGirl_BindPose.png"
+    },
+    {
+      "pose": "Idle",
+      "meshHeight": 1.94511247,
+      "minY": -0.008992672,
+      "maxY": 1.93611979,
+      "hips": "(-0.0061, 1.2115, 0.0133)",
+      "screenshot": "screenshots/SweetGirl_Idle.png"
+    },
+    {
+      "pose": "Run",
+      "meshHeight": 1.72434008,
+      "minY": 0.128640771,
+      "maxY": 1.85298085,
+      "hips": "(-0.0116, 1.1722, -0.0467)",
+      "screenshot": "screenshots/SweetGirl_Run.png"
+    },
+    {
+      "pose": "Jump",
+      "meshHeight": 1.6813935,
+      "minY": -0.0041052103,
+      "maxY": 1.67728829,
+      "hips": "(0.0071, 1.1033, -0.1277)",
+      "screenshot": "screenshots/SweetGirl_Jump.png"
+    },
+    {
+      "pose": "Slide",
+      "meshHeight": 0.6463197,
+      "minY": 0.02234292,
+      "maxY": 0.6686626,
+      "hips": "(0.1643, 0.4630, -0.0064)",
+      "screenshot": "screenshots/SweetGirl_Slide.png"
+    },
+    {
+      "pose": "Death",
+      "meshHeight": 0.430905938,
+      "minY": -0.204771042,
+      "maxY": 0.2261349,
+      "hips": "(-0.0291, 0.0080, 0.0451)",
+      "screenshot": "screenshots/SweetGirl_Death.png"
+    }
+  ],
+  "knownAnimationLimitation": "Existing unchanged Death clip has approximately 0.20 m lowest-vertex ground penetration at the sampled end pose. Ground adjustment is not included; no animations or gameplay scripts were changed.",
+  "fileVerification": {
+    "gameplayScriptFiles": 10,
+    "gameplayScriptChanges": 0,
+    "reusedAnimationClips": 5,
+    "animationClipChanges": 0,
+    "controllerAssetReused": true,
+    "controllerFileReserializedByEditor": true
+  }
+}
