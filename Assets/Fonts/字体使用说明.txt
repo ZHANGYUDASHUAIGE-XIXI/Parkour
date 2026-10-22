@@ -1,0 +1,67 @@
+《学姐快跑》字体素材
+下载日期：2026-10-21
+
+本次新增 7 个字体家族、8 个静态 TTF/OTF 文件，约 57.6 MiB。
+字体文件均直接放在本目录；原 STHUPO.TTF 和 STHUPO SDF.asset 保留。
+字体对比图：FontPreview.png。
+
+文件与用途
+
+SmileySans-Oblique.ttf —— 得意黑
+  窄身倾斜、动感强。适合游戏标题、开始按钮、成绩强调。
+  不建议用于大段说明；不要再额外套斜体，以免过度倾斜。
+
+ZCOOLKuaiLe-Regular.ttf —— 站酷快乐体
+  活泼、手绘感。适合校园风提示、短按钮、可爱活动文案。
+
+ZCOOLQingKeHuangYou-Regular.ttf —— 站酷庆科黄油体
+  圆润、醒目。适合短标题、结算页、强调文字。
+
+LXGWWenKaiLite-Regular.ttf —— 霞鹜文楷轻便版
+  书写感温和。适合角色对白、校园故事、教程说明。
+  轻便版覆盖常用中文；生僻字应另行检查并配置回退字体。
+
+SourceHanSansSC-Regular.otf —— 思源黑体 Regular
+  清晰、规整。适合通用中文 UI、正文、规则和设置文字。
+
+SourceHanSansSC-Bold.otf —— 思源黑体 Bold
+  与 Regular 同一家族的粗字重。适合按钮、HUD 标签和醒目中文。
+
+Rajdhani-Bold.ttf —— Rajdhani Bold
+  紧凑数字与拉丁字母。适合分数、距离、速度、倒计时。
+  不含中文；混排时配中文回退字体，或将数字与标签分开显示。
+
+Bungee-Regular.ttf —— Bungee
+  厚重街机风。适合倒计时大数字、GO!、英文短标题。
+  不含中文；混排时配中文回退字体。
+
+给本游戏的搭配建议
+  主标题和主按钮：得意黑。
+  规则、提示正文：思源黑体 Regular；重点词：Bold。
+  校园对白或温柔文案：霞鹜文楷。
+  数字 HUD：Rajdhani Bold；大倒计时：Bungee。
+  快乐体和黄油体适合作为局部装饰，不建议同一屏堆叠全部字体。
+
+TextMeshPro 使用
+  当前项目使用 TextMeshPro。TTF/OTF 是字体源文件，不能直接拖入 TMP 的 Font Asset 槽。
+  在 Project 窗口右键所需字体，选择 Create > TextMeshPro > Font Asset。
+  将生成的 TMP Font Asset 和材质继续保存在 Assets/Fonts 内，再赋给文字组件的 Font Asset。
+  中文可使用动态字库（Atlas Population Mode: Dynamic），需要时启用多图集。
+  本次只下载字体并验证导入，没有自动生成大字库，也没有替换当前 UI 的字体。
+
+来源、授权与验证
+  所有新增字体均使用官方分发的未修改文件，采用 SIL Open Font License 1.1。
+  可以随游戏嵌入、分发和商用；随包保留对应字体的版权及授权文本。
+  各文件对应的完整许可放在 Licenses 文件夹；保留名称等具体条款以原文为准。
+  font-sources.json 保存每个文件的官方项目、下载地址、许可地址、大小和 SHA256。
+  已在当前团结引擎中验证 8 个字体均可导入和加载；中文字体通过常用游戏中文和英文数字样本文字检查。
+  下载工具和导入报告位于项目 Tools/Fonts 文件夹。
+
+官方项目
+  得意黑：https://github.com/atelier-anchor/smiley-sans
+  站酷快乐体：https://github.com/googlefonts/zcool-kuaile
+  站酷黄油体：https://github.com/google/fonts/tree/main/ofl/zcoolqingkehuangyou
+  霞鹜文楷轻便版：https://github.com/lxgw/LxgwWenKai-Lite
+  思源黑体：https://github.com/adobe-fonts/source-han-sans
+  Rajdhani：https://github.com/google/fonts/tree/main/ofl/rajdhani
+  Bungee：https://github.com/google/fonts/tree/main/ofl/bungee

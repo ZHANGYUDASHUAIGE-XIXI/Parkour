@@ -1,0 +1,46 @@
+校园漫跑 UI 美化 — 2026-10-20
+
+已应用场景：Assets/Scenes/SampleScene.scene
+现有 Canvas 下保留 MenuPanel、HudPanel、GameOverPanel 三个状态面板。
+开始、重新开始按钮仍使用原 Button 组件、原 UIManager 事件。
+四个计分文字仍使用原 ScoreManager 引用，未更改游戏脚本。
+
+素材全部保存在本目录：
+- Textures/Campus_Menu_Background.png：校园主菜单/结算背景。
+  使用内置 image_gen 单次生成；完整提示词及生成记录见 ArtGeneration.json。
+- Sprites：7 个透明图形，包括圆角底板、胶囊、箭头、金币、奖杯、叶片和跑道。
+  使用 System.Drawing 绘制矢量几何并以 4 倍分辨率抗锯齿输出。
+  可复用生成脚本：Tools/CampusUI/create-ui-sprites.ps1。
+- Fonts/NotoSansSC-Regular.otf：Noto Sans SC 中文字体。
+  来源：本项目 TMPChineseFont 扩展随附字体；许可原文见 Fonts/OFL.txt。
+- Fonts/Campus_NotoSansSC.asset：本套 UI 独立使用的 TMP 字体及字形图集。
+  未修改原项目中文字体或全局 TMP fallback 配置。
+
+界面内容：
+主菜单：校园插画、校园漫跑标题、开始游戏按钮、真实按键提示。
+HUD：左上得分、右上金币、底部操作提示；长数字自动缩小字号。
+结算：本次得分、历史最高分、再跑一次按钮。
+按钮包含普通、悬停、选中和按下颜色反馈。
+纯装饰不接收射线，保留按钮点击区域。
+
+布局：
+Canvas 参考分辨率 1920×1080，按宽高综合缩放。
+已截图检查 1920×1080 与 1280×800；未验证竖屏手机布局。
+背景按自身宽高比覆盖屏幕，超出部分裁出画面。
+图集 PNG 可在引擎中直接调整 Image 颜色；标题及文案是可编辑 TMP 文本。
+
+验证：
+实际 Play 模式通过菜单→开始→HUD→GameOver→结果→重开回菜单。
+两个按钮命中测试通过，分数/金币/最高分文字更新正常。
+运行报告：Tools/CampusUI/runtime-checks.json。
+10 个 Assets/Scripts 下的 C# 文件内容均与美化前相同。
+截图目录：screenshots/CampusUI。
+HUD 截图为编辑模式排版预览，测试数字并非保存的真实成绩。
+
+备份：
+ArtBackups/UI_BeforeBeautify_20261020/SampleScene.scene
+此备份是本次美化前的完整场景。若之后进行了其他场景编辑，
+请只提取需要恢复的 UI 内容，避免用整份旧场景覆盖后续工作。
+
+一次性作者工具位于 Tools/CampusUI，不参与游戏构建。
+build-ui.csx 在已经应用的界面上会拒绝重复执行；请直接在现有 Canvas 编辑。

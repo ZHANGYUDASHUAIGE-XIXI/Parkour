@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "createdDate": "2026-10-20",
+  "timeZone": "Asia/Shanghai",
+  "asset": "Assets/UI/Campus/Textures/Campus_Menu_Background.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "generate",
+  "useCase": "stylized-concept",
+  "prompt": "Use case: stylized-concept\nAsset type: production game main-menu background illustration for a polished campus endless-runner game; opaque landscape 16:9, preferably 2048 x 1152.\nPrimary request: a beautiful sunny university campus morning with warm ivory and pale terracotta academic buildings, sage green trees, and an inviting curving running path leading into the campus toward the upper right. Premium stylized 3D environment blended with softly painted anime background artistry, elegant and richly finished, tangible architecture, nuanced surfaces, appealing depth.\nComposition/framing: deliberate asymmetric landscape composition. The leftmost 45 percent must be quiet, very light warm cream and faint sage low-detail airy negative space suitable for native dark title typography and buttons that will be added separately. This quiet area belongs naturally to the atmosphere, soft bright sky and minimal pale ground, without a hard vertical division or graphic panel. The detailed visual story occupies the right 55 percent: terracotta roof lines, ivory academic facades with tasteful arches and large windows, green foliage, flower beds, paved pedestrian walkway. The curved path enters from the lower right and recedes into a campus courtyard near the upper right. A little foliage may frame the extreme top right. Balanced open composition, no close foreground object obstructing the quiet left UI area.\nLighting/mood: warm morning sunlight, pale sunny blue sky, delicate clouds, calm and inviting youthful campus atmosphere, soft directional shadows, crisp readable detail without excessive contrast.\nPalette: warm ivory, muted terracotta, sage and olive green, pale sky blue, small warm golden highlights. Restrained sophisticated colors, no neon.\nMaterials/textures: softly textured painted stucco, terracotta roof tiles, stone paving, delicate natural foliage; clean high quality game key art rather than a flat vector or generic geometric scene.\nConstraints: environment only, absolutely no people or characters; no words, lettering, signage text, logos, watermark, baked UI, buttons, borders, panels, iconography, or dark overlays. No heavy blur. Keep the whole output opaque.",
+  "transparentBackground": false,
+  "sourcePath": "C:/Users/张羽/.codex/generated_images/01a158b2-cecc-7fa1-91c9-64be7f396220/exec-f0a0800b-5507-4f3c-9cf9-7b539f09a30b.png",
+  "width": 1672,
+  "height": 940,
+  "format": "PNG RGB",
+  "fileBytes": 2335366,
+  "visualReview": {
+    "passed": true,
+    "observations": [
+      "Opaque near-16:9 campus illustration with warm ivory academic buildings and terracotta roofs.",
+      "Detailed architecture, vegetation and curving walkway concentrated on the right.",
+      "Left side has pale low-contrast sky and light paving suitable for dark native UI title and buttons.",
+      "No characters, text, logos, baked UI or watermarks visible."
+    ]
+  }
+}
