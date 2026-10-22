@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -33,7 +31,10 @@ public class ScoreManager : MonoBehaviour
     void OnDestroy()
     {
         Coin.OnCoinCollected -= AddCoin;
-        GameManager.Instance.OnStateChanged -= ShowHighAndCurrentScore;
+        if(GameManager.Instance != null)
+        {
+            GameManager.Instance.OnStateChanged -= ShowHighAndCurrentScore;
+        }
     }
 
     // Update is called once per frame

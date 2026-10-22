@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,8 +17,6 @@ public class GameManager : MonoBehaviour
 
     public event Action<GameState> OnStateChanged;   //游戏状态改变事件
 
-    public bool enableDebugKeys = true;
-
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -35,16 +31,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Debug.Log("当前游戏状态：" + CurrentState);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!enableDebugKeys) return;
-
-        if(Input.GetKeyDown(KeyCode.Alpha1)) SetState(GameState.Menu);
-        if(Input.GetKeyDown(KeyCode.Alpha2)) SetState(GameState.Playing);
-        if(Input.GetKeyDown(KeyCode.Alpha3)) SetState(GameState.GameOver);
     }
 
     /// <summary>
