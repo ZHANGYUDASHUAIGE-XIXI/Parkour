@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -14,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip buttonSound; //按钮音效
 
     private AudioSource audioSource;
+    public AudioSource sfxSource;    //音效源
 
     private void Awake()
     {
@@ -35,7 +34,10 @@ public class AudioManager : MonoBehaviour
 
     void OnDestroy()
     {
-        GameManager.Instance.OnStateChanged -= PlayBGM;
+        if(GameManager.Instance != null)
+        {
+            GameManager.Instance.OnStateChanged -= PlayBGM;
+        }
     }
 
     void PlayBGM(GameState newState)
@@ -52,31 +54,31 @@ public class AudioManager : MonoBehaviour
 
     public void PlayCoinCollectSound()
     {
-        audioSource.PlayOneShot(coinCollectSound);
+        sfxSource.PlayOneShot(coinCollectSound);
     }
 
     public void PlayDieSound()
     {
-        audioSource.PlayOneShot(dieSound);
+        sfxSource.PlayOneShot(dieSound);
     }
 
     public void PlayJumpSound()
     {
-        audioSource.PlayOneShot(jumpSound);
+        sfxSource.PlayOneShot(jumpSound);
     }
 
     public void PlaySlideSound()
     {
-        audioSource.PlayOneShot(slideSound);
+        sfxSource.PlayOneShot(slideSound);
     }
 
     public void PlayLaneChangeSound()
     {
-        audioSource.PlayOneShot(laneChangeSound);
+        sfxSource.PlayOneShot(laneChangeSound);
     }
 
     public void PlayButtonSound()
     {
-        audioSource.PlayOneShot(buttonSound);
+        sfxSource.PlayOneShot(buttonSound);
     }
 }

@@ -1,15 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public Transform cameraTrans;   //摄像机
     private float offsetZ;          //相机偏移量
+    private Vector3 shakeOffset;    //震动偏移量
+    private float shakeDuration = 0.5f; //震动持续时间
+    private float shakeMagnitude = 0.1f; //震动振量
+    private float shakeTimer = 0f; //震动计时器
+    private Camera mainCamera;
+    private float baseFov = 60f;    //基础FOV
+    private float maxFov = 78f;     //最大FOV
+    private float currentFov = 60f; //当前FOV
+    private float fovSmooth = 3f;    //FOV平滑度
 
     [SerializeField]
     private float speed = 10f;      //角色移动速度
+    private float baseSpeed = 10f; //基础移动速度
     private float maxSpeed = 16f;   //最大移动速度
     private float speedUpAmount = 0.4f; //速度增加量
     private float nextSpeedUpZ = 100f; //下一个速度增加位置
@@ -32,17 +40,22 @@ public class PlayerController : MonoBehaviour
     private Vector3 standCenter;        //站立时碰撞体中心
 
     private Animator animator;          //动画控制器
+    private bool canRun = false;       //是否可以奔跑
 
     // Start is called before the first frame update
     void Start()
     { 
         //相机偏移量
         offsetZ = cameraTrans.position.z - transform.position.z;
+        //获取主相机组件
+        mainCamera = cameraTrans.GetComponent<Camera>();
+        //基础FOV
+        mainCamera.fieldOfView = baseFov;
         //胶囊碰撞体
         controller = GetComponent<CharacterController>();
         //站立时碰撞体中心
         standCenter = controller.center;
-        //动画控制器
+        //获取动画控制器组件
         animator = GetComponent<Animator>();
 
         GameManager.Instance.OnStateChanged += PlayRunAnimation;
@@ -50,13 +63,18 @@ public class PlayerController : MonoBehaviour
 
     void OnDestroy()
     {
-        GameManager.Instance.OnStateChanged -= PlayRunAnimation;
+        if(GameManager.Instance != null)
+        {
+            GameManager.Instance.OnStateChanged -= PlayRunAnimation;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.CurrentState != GameState.Playing) return;
+        if(Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+
+        if (GameManager.Instance.CurrentState != GameState.Playing || !canRun) return;
 
         if(speed < maxSpeed && transform.position.z >= nextSpeedUpZ)
         {
@@ -77,7 +95,9 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        UpdateCameraShakeOffset();
         CameraFollow();
+        UpdateCameraFov();
     }
 
     /// <summary>
@@ -94,9 +114,41 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void CameraFollow()
     {
-        Vector3 pos = cameraTrans.position;
+        Vector3 pos = mainCamera.position;
         pos.z = transform.position.z + offsetZ;
-        cameraTrans.position = pos;
+        cameraTrans.position = pos + shakeOffset;
+    }
+
+    /// <summary>
+    /// 更新相机震动偏移量
+    /// </summary>
+    void UpdateCameraShakeOffset()
+    {
+        if(shakeTimer <= 0f) 
+        {
+            shakeOffset = Vector3.zero;
+            return;
+        }
+
+        float t = Mathf.InverseLerp(0f, shakeDuration, shakeTimer);
+        float curMagnitude = shakeMagnitude * t;
+        shakeOffset = Random.insideUnitSphere * curMagnitude;
+        shakeOffset.z = 0f;
+        shakeTimer -= Time.deltaTime;
+    }
+
+    /// <summary>
+    /// 更新相机FOV
+    /// </summary>
+    void UpdateCameraFov()
+    {
+        if(currentFov >= maxFov) return;
+
+        //根据速度更新FOV
+        float t = Mathf.InverseLerp(baseSpeed, maxSpeed, speed);
+        float targetFov = Mathf.Lerp(baseFov, maxFov, t);
+        currentFov = Mathf.Lerp(currentFov, targetFov, fovSmooth * Time.deltaTime);
+        mainCamera.fieldOfView = currentFov;
     }
 
     /// <summary>
@@ -141,9 +193,12 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Die()
     {
+        if(GameManager.Instance.CurrentState != GameState.Playing) return;
+
         GameManager.Instance.PlayerDied();
         AudioManager.Instance.PlayDieSound();
         animator.SetBool("IsDead", true);
+        shakeTimer = shakeDuration;
     }
 
     /// <summary>
@@ -227,15 +282,26 @@ public class PlayerController : MonoBehaviour
         controller.center = standCenter;
     }
 
+    /// <summary>
+    /// 播放奔跑动画
+    /// </summary>
+    /// <param name="newState">新的游戏状态</param>
     void PlayRunAnimation(GameState newState)
     {
         if(newState == GameState.Playing)
         {
             animator.SetBool("IsPlaying", true);
+            StartCoroutine(PrepareToRun());
         }
-        else if(newState == GameState.Menu)
-        {
-            animator.SetBool("IsPlaying", false);
-        }
+    }
+
+    /// <summary>
+    /// 准备奔跑
+    /// </summary>
+    IEnumerator PrepareToRun()
+    {
+        yield return new WaitForSeconds(3f);
+        animator.SetBool("IsRunning", true);
+        canRun = true;
     }
 }
